@@ -85,7 +85,7 @@ public class Solution126 {
         	    {
         	      
                     tmp.add(w);
-                    tempRes.add(new LinkedList<String>(tmp));
+                    //tempRes.add(new LinkedList(tmp));
                     if(w.equals(end))
         	            shortCount = Math.min(tmp.size(), shortCount);
                     tmp.remove(w);
