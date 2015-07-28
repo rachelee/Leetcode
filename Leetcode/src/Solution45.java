@@ -4,22 +4,28 @@ public class Solution45 {
         if(nums.length <= 1)
             return 0;
         int jump = 0;
-        int current = 0;
-        int tempCur = 0;
-        for(int i = 0; i < nums.length; i++)
+        int reach = nums.length-1;
+        int tempReach = nums.length-1;
+
+        for(int i = 1; i < nums.length; i++)
         {
-        	if(current >= nums.length-1)
-        		return jump;
-        	tempCur = Math.max(tempCur, i+nums[i]);
-            if(i>=current)
+        
+        	if(i+nums[nums.length-1-i] >= reach)
+        	{
+        		tempReach = nums.length-1-i;
+        		if(i == nums.length-1)
+        			jump+=1;
+        	}
+            else
             {
-                jump++;
-                current = tempCur;
+                reach = tempReach;
+                jump +=1;
             }
-            
-            
         }
-        return jump;
+        if(nums[0] >= tempReach)
+            return jump+1;
+        else 
+            return -1;
     }
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
