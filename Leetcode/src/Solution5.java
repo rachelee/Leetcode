@@ -115,10 +115,46 @@ public class Solution5 {
         
         return s.substring(left+1, right);
     }
+    public static String longestPalindrome3(String s) {
+        String res = "";
+        for(int i = 0; i < s.length();i++){
+            int l = i;
+            int r = i;
+            while(s.charAt(l) == s.charAt(r)){
+                l--;
+                r++;
+                if(l<0||r>s.length()-1)
+                    break;
+            }
+            l++;
+            r--;
+            
+            if(r-l+1 > res.length())
+                res = s.substring(l, r+1);
+        }
+        if(s.length()>1)
+            for(int i = 0; i < s.length()-1;i++){
+                int l = i;
+                int r = i+1;
+                while(s.charAt(l) == s.charAt(r)){
+                    l--;
+                    r++;
+                    if(l<0||r>s.length()-1)
+                        break;
+                }
+                l++;
+                r--;
+                
+                if(r-l+1 > res.length())
+                    res = s.substring(l, r+1);
+            }
+        
+        return res;
+    }
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String str = "aaaa";
-		System.out.println(longestPalindrome(str));
+		String str = "bb";
+		System.out.println(longestPalindrome3(str));
 	}
 
 }
