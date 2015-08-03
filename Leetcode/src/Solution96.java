@@ -1,5 +1,6 @@
 
 public class Solution96 {
+
 	//Recursive
 	public int numTrees2(int n) {
         if(n==0)
@@ -33,6 +34,9 @@ public class Solution96 {
 		// TODO Auto-generated method stub
 		Solution96 test = new Solution96();
 		System.out.println(test.numTrees(3));
+
+	
+
 	}
 
 }
